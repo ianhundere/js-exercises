@@ -1,0 +1,302 @@
+/* 
+hey this is really important. 
+yeah. 
+cool. 
+k. 
+bye 
+*/
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+
+  70% {
+    transform: scale(2.5);
+  }
+
+  100% {
+    transform: scale(1.7);
+  }
+}
+
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* html {
+    font-size: 3rem;
+} */
+
+html,
+body {
+  /* single value for all 4 sides */
+  padding: 0;
+  margin: 0;
+
+  /* 
+
+        set margin & padding to 0 
+        so that elements stretch to 
+        edge of browser window.
+     */
+}
+
+body {
+  /* outline: 1px solid blue; */
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.header-text {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+
+  /* two values: top/bottom  left/right */
+  padding: 0 8px;
+  /* padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 8px;
+    padding-right: 8px; */
+
+  /* outline: 1px solid red; */
+}
+
+/* h1  */
+/* #logo-text */
+.logo-text {
+  color: rgba(0, 0, 0, 0.9);
+  /* font-size: 1.5rem; */
+  /* font-size: 1.5em; */
+  font-size: 18px;
+  display: inline-block;
+  /* outline: 1px solid red; */
+  margin-right: 20px;
+  /* padding-right: 50px; */
+  /* background-color: yellow; */
+}
+
+.nav-container {
+  display: inline-block;
+  /* outline: 1px solid blue; */
+}
+
+.nav-link {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  margin-right: 8px;
+}
+
+.hero-image {
+  /* 
+    Because the image is in a different folder,
+    must use ../images/ before the file name.
+     */
+  background-image: url(../images/adventure-calm-clouds-414171.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  min-height: 300px;
+  min-width: 100%;
+  /* opacity: 0.3; */
+}
+
+/* "descendant selector" */
+/* 
+.hero-text h2 {
+    font-family: fantasy;
+}     */
+
+.hero-image h2 {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  /* color: #ffffff; */
+  color: #fff;
+  /* color: rgba(255, 255, 255, 0.9); */
+}
+
+/* 
+using an ID, which is more specific and 
+overrides the other font-family declarations.
+*/
+/* #lalalala {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+} */
+
+/* Flexbox!!!! Aw yeah! */
+.center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-me {
+  padding: 0 8px;
+}
+
+/* 
+no effect, because paragraphs
+are full width already.
+no room for margin. 
+*/
+/* .about-me p {
+    margin: 0 auto;
+} */
+
+/* container determines max size */
+.profile-image {
+  width: 350px;
+  /* another centering technique! */
+  margin: 0 auto;
+}
+/* img adapts to container */
+.profile-image img {
+  /*
+    constrain either by width OR height.
+    not both.
+    that messes up the aspect ratio.
+     */
+  width: 100%;
+  border-radius: 50%;
+}
+
+.contact-links {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 18px 12px;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contact-links .fab,
+.contact-links .fas {
+  color: white;
+  /* padding: 0 18px; */
+  font-size: 36px;
+  /* transition: all .5s; */
+  /* transition: font-size .5s, color: .2s; */
+  /* transition: transform .25s cubic-bezier(.89,1.38,.39,-0.53); */
+  /* transition: transform .25s ease-in-out .1s; */
+}
+
+.contact-links a {
+  margin: 0 18px;
+  /* outline: 1px solid cornflowerblue; */
+}
+
+.contact-links a:hover {
+  cursor: pointer;
+}
+
+.contact-links a:hover .fab,
+.contact-links a:hover .fas,
+.contact-links a:active .fab,
+.contact-links a:active .fas {
+  color: red;
+  /* font-size: 48px; */
+  /* transform: scale(1.7); */
+  /* transform */
+  animation-name: zoom;
+  animation-duration: 0.1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 3;
+}
+
+/* 
+Response Web Design Implementation
+a.k.a. Media Queries!
+if/else statements for your CSS
+ */
+/* 
+Common "breakpoints"
+S, M, L, XL, Party size
+
+500px
+768px
+1024px
+1200px
+1400px
+*/
+
+@media screen and (min-width: 500px) {
+  /*  
+    1. Turn the .about-me section into a flex container
+    
+    2. Set the width of .about-me-container so that it takes up 70% of the width
+
+    3. Set the width of .profile-image so that it looks good.
+
+    4. Tweak the sizes because it'll look jacked up on the first few attempts.
+    */
+
+  /* 
+    Anywhere you want to shift the layout, add
+    a wrapper div (or section) and turn it into
+    a flex parent (a.k.a. a "flex container")
+    */
+  .about-me {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  /* "descendant" selector */
+  .about-me div {
+    /* these apply to any div
+        anywhere inside of .about-me */
+  }
+
+  /* "Direct child" selector */
+  .about-me > div {
+    /* outline: 1px solid red; */
+  }
+
+  .about-me-container {
+    /* 
+        box-sizing: border-box 
+        makes this behave in a sane way.
+
+        without it, the .about-me-container takes up 70% + 18px
+        */
+    width: 70%;
+    padding-right: 18px;
+  }
+
+  .profile-image {
+    /* outline: 5px solid red; */
+    /* width: 200px; */
+    width: 30%;
+  }
+}
+
+
+
+@media screen and (min-width: 700px) {
+  .hero-text h2 {
+    font-size: 48px;
+    /* outline: 1px solid red; */
+  }
+
+  .header-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-text > * {
+    /* outline: 1px solid red; */
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .header-text > nav {
+    /* 
+        do not render! 
+        
+        */
+    /* display: none; */
+  }
+}
